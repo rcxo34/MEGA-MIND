@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.left_sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.left_sidebar ul li {
+  padding: 15px 20px;
+}
+
+.left_sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.left_sidebar ul li a:hover {
+  background-color: #34495e;
+}
+
+.navbar {
+  display: flex;
+  background-color: #3498db;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  height: 64px;
+}
+
+.button_holder{
+  position: absolute;
+  right: 25px;
+  top: 12px;
+
+}
+
+.content {
+  padding: 15px;
+}
+
+/* src\components\user\UserContent */
+
+.box1{
+    background-image: url('../../assets/bgbluesnow.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.box h2{
+ font-size: 32px;
+}
+
+.box:last-child {
+  margin-right: 0; /* Remove margin from the last box to prevent extra space */
+}
+
+
+
+
+.graph:last-child {
+  margin-right: 0; /* Remove margin from the last box to prevent extra space */
+}
+
+.doughnut-graph{
+ width: 313px;
+ height: 313px  ;
+ display: flex;
+ justify-content:center;
+  align-items: center;
+  flex-direction: column
+}
+
+
+//Status table styles
+
+.dashboardtable {
+  width: 100%; /* Ensure table takes full width of its container */
+  height: 100%; /* Ensure table takes full height of its container */
+  max-height: 100%; /* Limit maximum height to prevent overflow */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dashboardtable h2 {
+  margin-bottom: 2px; /* Space below heading */
+}
+
+.dashboardtable table {
+  width: 80%; /* Adjust table width as needed */
+  border-collapse: collapse;
+ 
+}
+
+.dashboardtable th, .dashboardtable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.status-table {
+  height: 324px; /* Occupy full height of parent container */
+  width:356px;
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+.status-table table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.status-table th, .status-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
