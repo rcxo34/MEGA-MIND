@@ -33,8 +33,11 @@ const StatusTable = () => {
         const data = await response.json();
         const daysArray = data.totalDays.map(obj => obj.day);
         setResponseData(data.totalDays)
+
+        console.log(data.totalDays)
+        console.log(responseData)
         setCompletedDays(daysArray);
-        console.log(completedDays)
+        // console.log(completedDays)
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -43,12 +46,14 @@ const StatusTable = () => {
     };
 
     fetchCompletedDays();
-  }, [getToken]); // Ensure getToken is in dependency array if needed
+  }, []); // Ensure getToken is in dependency array if needed
 
   const generateDaysStatus = (completedDays) => {
     return Array.from({ length: 30 }, (v, i) => ({
       day: i + 1,
       status: completedDays.includes(i + 1) ? 'Completed' : 'Pending',
+      
+      date: responseData.find(day => day.day === i + 1)?.timeCompleted || 0,
       score: responseData.find(day => day.day === i + 1)?.score || 0
     }));
   };
@@ -72,6 +77,7 @@ const StatusTable = () => {
           <tr>
             <th className='bg-blue-400 '>Day</th>
             <th className='bg-blue-400 '>Status</th>
+            {/* <th className='bg-blue-400 '>Date Completed</th> */}
             <th className='bg-blue-400 '>Score</th>
           </tr>
         </thead>
@@ -80,6 +86,7 @@ const StatusTable = () => {
             <tr key={dayStatus.day} className={dayStatus.status === 'Completed' ? 'bg-blue-200 text-blue-900' : ' '}>
               <td>{dayStatus.day}</td>
               <td>{dayStatus.status}</td>
+              {/* <td>{dayStatus.date}</td> */}
               <td className='flex justify-center'>
                 {dayStatus.status === 'Completed' ? dayStatus.score : <FaCircleXmark style={{}}/>}
                 {dayStatus.score === 3 && <FaStar style={{display:'inline',color: '#d97706', fontSize: '20', marginBottom:'4px'}}/> }  

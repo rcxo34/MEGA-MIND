@@ -38,17 +38,17 @@ const Articles = () => {
 
   return (
     <div className='m-7'>
-      <label htmlFor="article_bar" className='text-xl'>Enter the day number</label>
+      <label htmlFor="article_bar" className='text-xl font-sofia'>Enter the day number</label>
       <input
         type="number"
         placeholder="Eg: 3 "
         id="article_bar"
-        className='w-[200px] h-auto text-2xl border mr-1 border-gray-400 p-2 inline'
+        className='w-[200px] h-auto text-2xl border mr-1 border-gray-400 p-2 inline font-sofia'
       />
-      <button onClick={handleDayChange} className='w-auto p-2 bg-blue-300 hover:bg-blue-800 hover:text-blue-200 h-auto text-2xl rounded-sm'>Show me the article</button>
+      <button onClick={handleDayChange} className='w-auto p-2 bg-blue-300 font-sofia hover:bg-blue-800 hover:text-blue-200 h-auto text-2xl rounded-sm'>Show me the article</button>
       
 
-      <div className='opacity-50 absolute top-[256px] right-[656px] z-0'>
+      <div className='opacity-25 absolute top-[256px] right-[656px] z-0'>
         <img src={logo} alt="icon" className='w-[512px] h-[512px]'/>
       </div>
       <SideButtons />
@@ -57,10 +57,10 @@ const Articles = () => {
       {error && <div>Error: {error}</div>}
 
       {!loading && !error && article && (
-        <div className='article-container-main relative z-1'>
-          <h2 className='article-heading z-1'>{article.title}</h2>
+        <div className='text-xl relative z-1'>
+          <h2 className='article-heading z-1 font-sofia p-2 w-[1200px]'>{article.title}</h2>
           {article.content.map((paragraph, index) => (
-            <p key={index} className='para'> <br/>{paragraph}</p>
+            <p key={index} className='para font-sofia text-2xl w-[1200px] ml-6'> <br/>{paragraph}</p>
           ))}
         </div>
       )}

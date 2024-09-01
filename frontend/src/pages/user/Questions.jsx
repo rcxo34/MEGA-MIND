@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+ import React, { useEffect, useState, useContext } from 'react';
 import '../../styles/user/questions.css';
 import { jwtDecode } from 'jwt-decode';
 import AuthContext from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 import SideButtons from '../../components/user/SideButtons';
+import logo from '../../assets/logo.svg';
 
 const Questions = () => {
   const { getToken } = useContext(AuthContext);
@@ -196,9 +197,23 @@ const Questions = () => {
   }
 
   return (
-    <div>
+    <div className='m-7'>
+      <label htmlFor="search_bar" className='text-xl font-sofia'>Enter the day number</label>
+      <input
+        type="number"
+        placeholder="Eg: 3 "
+        id="search_bar"
+        className='w-[200px] h-auto text-2xl border mr-1 border-gray-400 p-2 inline font-sofia'
+      />
+      <button onClick={handleSearchSubmit} className='w-auto p-2 bg-blue-300 font-sofia hover:bg-blue-800 hover:text-blue-200 h-auto text-2xl rounded-sm'>Let me try the Questions</button>
+      
+      
+      <div className='opacity-25 absolute top-[256px] right-[88px] z-0'>
+        <img src={logo} alt="icon" className='w-[512px] h-[512px]'/>
+      </div>
       <SideButtons/>
-        <input
+      
+        {/* <input
           type="number"
           placeholder="Enter day number"
           id="search_bar"
@@ -206,19 +221,20 @@ const Questions = () => {
         />
         <button onClick={handleSearchSubmit} className="full-width submit-btn1 search-input move-btn">
           Find
-        </button>
+        </button> */}
       
 
       {error && <p>{error}</p>}
 
-      <form onSubmit={handleSubmit} className="question_form full-width">
+      <div className='ml-12 mt-6'>
+      <form onSubmit={handleSubmit} className="question_form full-width relative z-10">
         {questions.map((question, index) => (
-          <div key={index} className="full-width">
-            <h3 className="select question-box">{question.question}</h3>
+          <div key={index} className="full-width text-xl">
+            <h3 className="select question-box font-sofia">{question.question}</h3>
             {question.options.map((option, optionIndex) => (
-              <label className="select " key={optionIndex}>
+              <label className="select font-sofia text-xl " key={optionIndex}>
                 <input
-                  className="select"
+                  className="select m-3 font-sofia"
                   type="radio"
                   name={`question${index}`}
                   value={option}
@@ -230,13 +246,15 @@ const Questions = () => {
               </label>
             ))}
           </div>
+          
         ))}
         
-          <button type="submit" className="full-width submit-btn1">
+         {searchDay && <button type="submit" className="font-sofia text-2xl w-full ml-9 p-1 bg-blue-900 hover:bg-blue-500 rounded-lg text-blue-200 ">
             Submit
-          </button>
+          </button>}
         
       </form>
+      </div>
 
       {score !== null && (
         <div className="full-width">

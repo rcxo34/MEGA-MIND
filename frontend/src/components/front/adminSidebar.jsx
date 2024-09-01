@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { FaBook, FaCircleQuestion, FaCubesStacked, FaHouse, FaRightFromBracket, FaMessage, FaChartSimple, FaPeopleGroup } from 'react-icons/fa6';
 import { FaBookOpen, FaCertificate } from 'react-icons/fa';
 
-const Sidebar = () => {
+const adminSidebar = () => {
   const linkClass = ({ isActive }) =>
     isActive
       ? 'font-sans bg-black w-full font-bold text-blue-400 hover:bg-gray-900 hover:text-blue-400 rounded-md px-3 py-2 flex item-center font-sofia'
@@ -63,10 +63,7 @@ const Sidebar = () => {
             Materials
           </NavLink>
 
-          <NavLink to="/user/statistics" className={linkClass}>
-            <FaChartSimple className={iconClass}  style={{ fontSize: '20', marginRight:'8px', marginTop:'4px' }}/>
-            Statistics
-          </NavLink>
+          
 
           <NavLink to="/user/community" className={linkClass}>
             <FaPeopleGroup className={iconClass}  style={{ fontSize: '20', marginRight:'8px', marginTop:'4px' }}/>
@@ -90,4 +87,4 @@ const Sidebar = () => {
 
 
 
-export default Sidebar;
+export default adminSidebar;

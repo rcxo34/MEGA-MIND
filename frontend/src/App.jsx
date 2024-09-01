@@ -15,6 +15,7 @@ import Questions from './pages/user/Questions';
 import Signup from './pages/front/Signup';
 import Login from './pages/front/Login';
 import Curriculum from './pages/user/Curriculum';
+import AdminLayout from './layouts/AdminLayout';
 import { AuthProvider } from './context/AuthContext';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -107,12 +108,18 @@ const router = createBrowserRouter([
       },
     ]
   },
-  {
-    path:'/admin/home',
-    element: 
-    (<ProtectedRoute requiredRole="admin">
-      <Home2 />
-    </ProtectedRoute>)
+  { 
+    path: '/admin',
+    element: <AdminLayout />,
+    children: [
+      {
+        path:'/admin/home',
+        element: 
+        (<ProtectedRoute requiredRole="admin">
+          <Home2 />
+        </ProtectedRoute>)
+      }
+    ]
       
   }
 
